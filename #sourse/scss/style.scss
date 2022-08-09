@@ -1,0 +1,119 @@
+/* ========================== Обнуляющий стиль ================================================== */
+@import "null.css";
+
+/* ========================= Шрифты ==================================== */
+
+
+/* ================================================================================== */
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    background-color: #333;
+    color: #fff;
+}
+.content {
+    padding: 50px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.tabs {
+    margin: 0 0 50px 0;
+}
+.tabs__items {
+    display: flex;
+
+    .tabs__item {
+        flex: 0 1 33.333%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        span{
+            @media (max-width:550px) {
+                display: block;
+                font-size: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 5px;
+            }
+        }
+
+    }
+}
+.tabs__body {
+    position: relative;
+
+    .tabs__block {
+        padding: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        display: none;
+        opacity: 0;
+        height: 0px;
+        overflow: auto;
+        transition: opacity 1s ease 0s;
+        animation-name: opacity;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+        &._active{
+            display: block;
+            @keyframes opacity {
+                0%{
+                    opacity: 0;
+                    height:0px;
+                }
+                100%{
+                    opacity: 1;
+                    height: 200px;
+                }
+            }
+        }
+
+        &:nth-child(1){
+            background-color: #eb8698;
+        }
+        &:nth-child(2){
+            background-color: #9278aa;
+        }
+        &:nth-child(3){
+            background-color: #97c67d;
+        }
+
+
+
+        &:nth-child(1)::before{
+            content: '';
+            height: 50px;
+            width: 33.333%;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background-color: #eb8698;
+        }
+        &:nth-child(2)::before{
+            content: '';
+            height: 50px;
+            width: 33.333%;
+            position: absolute;
+            top: -50px;
+            left: 33.333%;
+            background-color: #9278aa;
+        }
+        &:nth-child(3)::before{
+            content: '';
+            height: 50px;
+            width: 33.333%;
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background-color: #97c67d;
+        }
+    }
+}
+.text {
+}
